@@ -1,16 +1,11 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import HomeCard from "../../components/home-card";
+import HomeCard from "../../components/card/home-card";
 import "./home.css";
-import { getProducts } from "../../services/product-service";
+import { useProduct } from "../../context/product-context";
 
 function HomePage() {
-    const [product, setProducts] = useState([]);
-
-    useEffect(async () => {
-        const data = await getProducts();
-        setProducts(data.products);
-    }, []);
+    const [products] = useProduct();
 
     return (
         <main className="home">
@@ -52,8 +47,12 @@ function HomePage() {
             <section className="best-seller p-2">
                 <p className="text-l fw-bold text-center p-2">Best Seller</p>
                 <div className="card-container">
-                    {product.map((item, index) =>
-                        index < 2 ? <HomeCard item={item} key={item.id} /> : ""
+                    {products.map((product, index) =>
+                        index < 2 ? (
+                            <HomeCard product={product} key={product.id} />
+                        ) : (
+                            ""
+                        )
                     )}
                 </div>
             </section>
