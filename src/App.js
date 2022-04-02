@@ -1,6 +1,13 @@
 import "./App.css";
 import { Header } from "./components/header";
-import { HomePage } from "./pages/Pages";
+import {
+    HomePage,
+    Login,
+    SignUp,
+    Product,
+    WishList,
+    Cart,
+} from "./pages/Pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -11,6 +18,11 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="homePage" element={<HomePage />} />
+                    <Route path="login" element={<Login />} />
+                    <Route path="signup" element={<SignUp />} />
+                    <Route path="product" element={<Product />} />
+                    <Route path="wishlist" element={<WishList />} />
+                    <Route path="cart" element={<Cart />} />
                 </Routes>
             </BrowserRouter>
         </div>
