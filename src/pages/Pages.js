@@ -1,8 +1,8 @@
-import { HomePage } from "./HomePage";
-import { Cart } from "./Cart";
-import { Login } from "./Login";
-import { Product } from "./Product";
-import { SignUp } from "./SignUp";
-import { WishList } from "./WishList";
+import { HomePage } from "./homepage/HomePage";
+import { Cart } from "./cart/Cart";
+import { Login } from "./auth/Login";
+import { SignUp } from "./auth/SignUp";
+import { Product } from "./product/Product";
+import { WishList } from "./wishlist/WishList";
 
 export { HomePage, Cart, Login, SignUp, Product, WishList };
