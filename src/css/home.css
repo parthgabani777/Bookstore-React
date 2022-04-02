@@ -1,0 +1,96 @@
+@import "./library.css";
+@import "./header.css";
+
+/* Landing img and text */
+.landing {
+    width: 100%;
+    height: 100vh;
+}
+.landing::before {
+    background-image: url(../assets/landing-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    filter: blur(2px);
+}
+.landing-content {
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 70%;
+    gap: var(--spacing-s);
+}
+.landing-btn {
+    color: var(--white-color);
+    font-size: 2.4rem;
+}
+
+/* category section */
+.home .category-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-s);
+}
+.home .category-card {
+    min-width: 27rem;
+    min-height: 23rem;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: no-repeat center center;
+    background-size: cover;
+    box-shadow: inset 0 0 20rem var(--black-color);
+    color: var(--white-color);
+}
+.home .category-card:hover {
+    cursor: pointer;
+    opacity: 0.85;
+    color: var(--light-text-color);
+}
+
+/* category cards */
+.home .card-science {
+    background: url(../assets/science.jpg);
+}
+.home .card-tech {
+    background: url(../assets/tech.jpg);
+}
+.home .card-fiction {
+    background: url(../assets/fiction.jpg);
+}
+.home .card-history {
+    background: url(../assets/history.jpeg);
+}
+
+/* best seller cards */
+.home .card-horizontal {
+    max-height: 30rem;
+}
+.home .card-horizontal .card-img {
+    max-height: 30rem;
+    width: 100%;
+    justify-content: center;
+}
+.home .card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-m);
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        flex-direction: column;
+        max-height: none;
+    }
+}

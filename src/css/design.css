@@ -1,0 +1,117 @@
+:root{
+      /* Colors */
+      /* #2b6777 #c8d8e4 #ffffff #f2f2f2 #52ab98 */
+      --primary-color : #2b6777;
+      --secondary-color : #52ab98;
+      --accent-color: #4CB944;
+      --grey-color: #F2F2F2;
+      --white-color: #FFFFFF;
+      --black-color: #000000;
+      --light-secondary-color: #c8d8e4;
+      --text-color: #2E3532;
+      --background-color: #FCF7F8;
+      --light-text-color: #72837c;
+      --grey-white-color: #DCDCDC;
+      --blue-color:#0000ED;
+
+      /* Box Sizing */
+      --primary-shadow-color: rgb(43 103 119 / 25%);
+
+      /* notification color */
+      --error-color: #f4c7c7;
+      --warning-color: #ffe2b7;
+      --info-color: #b8e7fb;
+      --success-color: #cce8cd;
+
+      /* Rating color */
+      --rating-low-color: #ff4545;
+      --rating-average-color: #ffe234;
+      --rating-high-color: #57e32c;
+
+      /* Badge color */
+      --online-badge-color:#28a745;
+      --offline-badge-color:#dc3545;
+      --warning-badge-color:#ffc107;;
+      --info-badge-color:#17a2b8;
+
+      /* Spacing */
+      --spacing-xs: 1rem;
+      --spacing-s: 2rem;
+      --spacing-m: 3rem;
+      --spacing-l: 4rem;  
+      --spacing-xl: 5rem;  
+}
+
+/* reset */
+
+*{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+html{
+      font-size: 62.5%;
+}
+body{
+      font-family: 'Roboto',sans-serif;
+}
+ul,li{
+      list-style: none;
+}
+a{
+      text-decoration: none;
+      color: inherit;
+}
+
+/* Spacing */
+
+/* margin classes */
+.m-1{
+      margin: var(--spacing-xs);
+}
+.m-2{
+      margin: var(--spacing-s);
+}
+.m-3{
+      margin: var(--spacing-m);
+}
+.m-4{
+      margin:var(--spacing-l);
+}
+
+/* padding classes */
+.p-1{
+      padding: var(--spacing-xs);
+}
+.p-2{
+      padding: var(--spacing-s);
+}
+.p-3{
+      padding: var(--spacing-m);
+}
+.p-4{
+      padding: var(--spacing-l);
+}
+
+.py-1{
+      padding-top: var(--spacing-xs);
+      padding-bottom: var(--spacing-xs);
+}
+.py-2{
+      padding-top: var(--spacing-s);
+      padding-bottom: var(--spacing-s);
+}
+
+/* border radius */
+.br-1{
+      border-radius: 5px;
+}
+.br-2{
+      border-radius: 10px;
+}
+.br-3{
+      border-radius: 15px;
+}
+.br-4{
+      border-radius: 50%;
+}

@@ -1,0 +1,53 @@
+/* types of  badges*/
+.badge-icon{
+      position: relative;
+      width: fit-content;
+      display: inline-block;
+}
+.badge-text{
+      font-size: 1.6rem;
+      background-color: var(--accent-color);
+      padding: 3px;
+}
+
+/* badge */
+.badge{
+      position: absolute;
+      border-radius: 50%;
+}
+.badge-status{
+      width: 1.2rem;
+      height: 1.2rem;
+}
+
+/* badge positioning */
+.badge-top-right{
+      top: 0;
+      right: 0; 
+}
+.badge-top-left{
+      top: 0;
+      left: 0;
+}
+.badge-bottom-right{
+      bottom: 0;
+      right: 0;
+}
+.badge-bottom-left{
+      bottom: 0;
+      left: 0;
+}
+
+/* badge status color */
+.badge-online{
+      background-color: var(--online-badge-color); 
+}
+.badge-offline{
+      background-color: var(--offline-badge-color);
+}
+.badge-warning{
+      background-color: var(--warning-badge-color);
+}
+.badge-info{
+      background-color: var(--info-badge-color);
+}
