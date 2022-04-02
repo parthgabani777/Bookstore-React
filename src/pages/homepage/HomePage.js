@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import HomeCard from "../components/home-card";
-import "../css/home.css";
-import { getProducts } from "../services/product-service";
+import HomeCard from "../../components/home-card";
+import "./home.css";
+import { getProducts } from "../../services/product-service";
 
 function HomePage() {
     const [product, setProducts] = useState([]);

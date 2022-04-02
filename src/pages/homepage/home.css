@@ -1,13 +1,10 @@
-@import "./library.css";
-@import "./header.css";
-
 /* Landing img and text */
 .landing {
     width: 100%;
     height: 100vh;
 }
 .landing::before {
-    background-image: url(../assets/landing-image.jpg);
+    background-image: url(../../assets/landing-image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     content: "";
@@ -60,16 +57,16 @@
 
 /* category cards */
 .home .card-science {
-    background: url(../assets/science.jpg);
+    background: url(../../assets/science.jpg);
 }
 .home .card-tech {
-    background: url(../assets/tech.jpg);
+    background: url(../../assets/tech.jpg);
 }
 .home .card-fiction {
-    background: url(../assets/fiction.jpg);
+    background: url(../../assets/fiction.jpg);
 }
 .home .card-history {
-    background: url(../assets/history.jpeg);
+    background: url(../../assets/history.jpeg);
 }
 
 /* best seller cards */

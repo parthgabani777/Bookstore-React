@@ -1,6 +1,3 @@
-@import "./library.css";
-@import "./header.css";
-
 /* utility */
 .link-blue {
     color: var(--blue-color);
