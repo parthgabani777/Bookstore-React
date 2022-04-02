@@ -1,0 +1,120 @@
+@import "./library.css";
+@import "./header.css";
+
+/* main container */
+.main {
+    max-width: 80%;
+    margin: auto;
+}
+
+/* cart container with card items and payment summery */
+.cart-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* cart items */
+.cart .card-items {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.cart .card-horizontal .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+.cart .card-horizontal .card-actions {
+    padding-top: var(--spacing-l);
+}
+.cart .card-horizontal .card-img {
+    width: 50%;
+}
+
+/* text format */
+.cancelled-price {
+    text-decoration: line-through;
+    color: var(--light-text-color);
+    padding-left: var(--spacing-xs);
+    font-weight: normal;
+}
+.text-discount {
+    color: var(--light-text-color);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* qunatity counter */
+.input-counter {
+    display: flex;
+    font-size: 2rem;
+    gap: var(--spacing-xs);
+}
+.counter-btn {
+    border: 1px solid var(--light-text-color);
+    border-radius: 50%;
+    padding: 0 5px;
+    width: 25px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.counter-btn i {
+    font-size: 1.8rem;
+}
+.counter-text {
+    border: 1px solid var(--light-text-color);
+    border-radius: 5px;
+    padding: 0 var(--spacing-xs);
+}
+
+/* payment summery card */
+.cart .card-price {
+    min-width: 400px;
+    height: fit-content;
+}
+.cart .card-price .card-content {
+    font-size: 2rem;
+}
+.cart .card-price .card-section {
+    border-bottom: 1px solid var(--light-text-color);
+    padding: 5px 0;
+    margin: 5px 0;
+}
+.cart .card-price .card-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+.cart .save-text {
+    padding-top: var(--spacing-xs);
+}
+.cart .card-price .card-actions {
+    padding-top: var(--spacing-s);
+}
+
+@media only screen and (max-width: 1100px) {
+    .main {
+        max-width: 100%;
+        padding: var(--spacing-s);
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .cart-container {
+        flex-direction: column;
+        gap: var(--spacing-l);
+    }
+    .card-price {
+        min-width: 100%;
+    }
+    .card-horizontal {
+        flex-direction: column;
+    }
+    .card-horizontal .card-img {
+        width: 100%;
+        justify-content: center;
+    }
+}

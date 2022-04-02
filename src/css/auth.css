@@ -1,0 +1,61 @@
+@import "./library.css";
+@import "./header.css";
+
+/* utility */
+.link-blue {
+    color: var(--blue-color);
+}
+.link-blue:hover {
+    opacity: 0.85;
+}
+
+/* login */
+.auth {
+    max-width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 100vh;
+}
+.auth-form {
+    width: 100%;
+}
+.auth .input-group {
+    display: flex;
+    flex-direction: column;
+}
+.auth .input-group label {
+    padding-bottom: 0.5rem;
+}
+.auth .input-checkbox {
+    display: flex;
+    justify-content: space-between;
+}
+.auth-btn {
+    width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .auth {
+        max-width: 50%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .auth {
+        max-width: 70%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .auth {
+        max-width: 80%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .auth {
+        max-width: 90%;
+    }
+}

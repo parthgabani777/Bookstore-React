@@ -1,0 +1,6 @@
+@import './library.css';
+@import './header.css';
+
+.card-container{
+      justify-content: center;     
+}
