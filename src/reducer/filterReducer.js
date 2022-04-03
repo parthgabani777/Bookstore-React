@@ -1,6 +1,6 @@
 export const filterReducer = (state, action) => {
     switch (action.type) {
-        case "Category_History":
+        case "Category_history":
             return {
                 ...state,
                 categories: {
@@ -9,7 +9,7 @@ export const filterReducer = (state, action) => {
                 },
             };
 
-        case "Category_Technology":
+        case "Category_technology":
             return {
                 ...state,
                 categories: {
@@ -18,7 +18,7 @@ export const filterReducer = (state, action) => {
                 },
             };
 
-        case "Category_Science":
+        case "Category_science":
             return {
                 ...state,
                 categories: {
@@ -27,7 +27,7 @@ export const filterReducer = (state, action) => {
                 },
             };
 
-        case "Category_Fiction":
+        case "Category_fiction":
             return {
                 ...state,
                 categories: {

@@ -46,130 +46,52 @@ function Filters({ filters, dispatchFilters, defaultValue }) {
             <div className="category">
                 <p className="sidebar-subtitle">Category</p>
                 <div>
-                    <div className="input-group">
-                        <input
-                            type="checkbox"
-                            id="history"
-                            checked={categories.history}
-                            onChange={(e) => {
-                                dispatchFilters({
-                                    type: "Category_History",
-                                });
-                            }}
-                        />
-                        <label htmlFor="history">History</label>
-                    </div>
-
-                    <div className="input-group">
-                        <input
-                            type="checkbox"
-                            id="science"
-                            checked={categories.science}
-                            onChange={(e) => {
-                                dispatchFilters({
-                                    type: "Category_Science",
-                                });
-                            }}
-                        />
-                        <label htmlFor="science">Science</label>
-                    </div>
-
-                    <div className="input-group">
-                        <input
-                            type="checkbox"
-                            id="technology"
-                            checked={categories.technology}
-                            onChange={(e) => {
-                                dispatchFilters({
-                                    type: "Category_Technology",
-                                });
-                            }}
-                        />
-                        <label htmlFor="technology">Technology</label>
-                    </div>
-
-                    <div className="input-group">
-                        <input
-                            type="checkbox"
-                            id="fiction"
-                            checked={categories.fiction}
-                            onChange={(e) => {
-                                dispatchFilters({
-                                    type: "Category_Fiction",
-                                });
-                            }}
-                        />
-                        <label htmlFor="fiction">Fiction</label>
-                    </div>
+                    {["history", "science", "technology", "fiction"].map(
+                        (category) => {
+                            return (
+                                <div className="input-group">
+                                    <input
+                                        type="checkbox"
+                                        id={category}
+                                        checked={categories[category]}
+                                        onChange={(e) => {
+                                            dispatchFilters({
+                                                type: `Category_${category}`,
+                                            });
+                                        }}
+                                    />
+                                    <label htmlFor={category}>{category}</label>
+                                </div>
+                            );
+                        }
+                    )}
                 </div>
             </div>
 
             <div className="rating">
                 <p className="sidebar-subtitle">Rating</p>
                 <div>
-                    <div className="input-group">
-                        <input
-                            type="radio"
-                            name="rating"
-                            id="rating4"
-                            checked={rating == 4}
-                            onChange={() => {
-                                dispatchFilters({
-                                    type: "Rating_Filter",
-                                    payload: { rating: 4 },
-                                });
-                            }}
-                        />
-                        <label htmlFor="rating4">4 star above</label>
-                    </div>
-
-                    <div className="input-group">
-                        <input
-                            type="radio"
-                            name="rating"
-                            id="rating3"
-                            checked={rating == 3}
-                            onChange={() => {
-                                dispatchFilters({
-                                    type: "Rating_Filter",
-                                    payload: { rating: 3 },
-                                });
-                            }}
-                        />
-                        <label htmlFor="rating3">3 star above</label>
-                    </div>
-
-                    <div className="input-group">
-                        <input
-                            type="radio"
-                            name="rating"
-                            id="rating2"
-                            checked={rating == 2}
-                            onChange={() => {
-                                dispatchFilters({
-                                    type: "Rating_Filter",
-                                    payload: { rating: 2 },
-                                });
-                            }}
-                        />
-                        <label htmlFor="rating2">2 star above</label>
-                    </div>
-
-                    <div className="input-group">
-                        <input
-                            type="radio"
-                            name="rating"
-                            id="rating1"
-                            checked={rating == 1}
-                            onChange={() => {
-                                dispatchFilters({
-                                    type: "Rating_Filter",
-                                    payload: { rating: 1 },
-                                });
-                            }}
-                        />
-                        <label htmlFor="rating1">1 star above</label>
-                    </div>
+                    {[4, 3, 2, 1].map((ratingItem) => {
+                        return (
+                            <div className="input-group">
+                                <input
+                                    type="radio"
+                                    name="rating"
+                                    id={`rating${ratingItem}`}
+                                    checked={rating == ratingItem}
+                                    onChange={() => {
+                                        dispatchFilters({
+                                            type: "Rating_Filter",
+                                            payload: { rating: ratingItem },
+                                        });
+                                    }}
+                                />
+                                <label htmlFor={`rating${ratingItem}`}>
+                                    {ratingItem} star above
+                                </label>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
 

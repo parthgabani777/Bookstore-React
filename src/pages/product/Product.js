@@ -31,13 +31,13 @@ function Product() {
     const [filters, dispatchFilters] = useReducer(filterReducer, defaultValue);
     const { categories, rating, sort, price } = filters;
 
-    const priceFilteredItems = filterPriceRange(products, price);
-    const categoryFilteredItems = filterByCategory(
-        priceFilteredItems,
-        categories
+    const filteredItems = sortItems(
+        filterByRating(
+            filterByCategory(filterPriceRange(products, price), categories),
+            rating
+        ),
+        sort
     );
-    const ratingFilteredItems = filterByRating(categoryFilteredItems, rating);
-    const sortedItems = sortItems(ratingFilteredItems, sort);
 
     return (
         <section className="product-main">
@@ -48,7 +48,7 @@ function Product() {
             />
 
             <div className="card-container p-2">
-                {sortedItems.map((product) => (
+                {filteredItems.map((product) => (
                     <ProductCard product={product} key={product.id} />
                 ))}
             </div>
