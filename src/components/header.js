@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/auth-context";
 import "../css/header.css";
 
 function Header() {
+    const { auth, signoutHandler, removeAuthTokens } = useAuth();
+
     return (
         <header>
             <nav className="navbar bg-dark">
@@ -41,9 +44,20 @@ function Header() {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="login" className="nav-link btn">
-                            Login
-                        </Link>
+                        {auth.isAuthorized ? (
+                            <a
+                                className="nav-link btn"
+                                onClick={() => {
+                                    signoutHandler(removeAuthTokens);
+                                }}
+                            >
+                                Logout
+                            </a>
+                        ) : (
+                            <Link to="login" className="nav-link btn">
+                                Login
+                            </Link>
+                        )}
                     </li>
                     <div className="nav-icons">
                         <Link

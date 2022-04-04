@@ -12,8 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    height: 100vh;
+    margin: 5rem auto;
 }
 .auth-form {
     width: 100%;
@@ -31,6 +30,25 @@
 }
 .auth-btn {
     width: 100%;
+}
+.auth input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.auth .password-input {
+    position: relative;
+}
+.auth .password-input input {
+    width: 100%;
+}
+.auth .password-input .fas {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.auth .password-input .fas:hover {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 1200px) {
