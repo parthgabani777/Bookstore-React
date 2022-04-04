@@ -2,7 +2,6 @@ import axios from "axios";
 
 const loginHandler = async (loginCredentials, setAuthTokens, navigation) => {
     try {
-        console.log(loginCredentials);
         const { data } = await axios.post("/api/auth/login", {
             email: loginCredentials.email,
             password: loginCredentials.password,
