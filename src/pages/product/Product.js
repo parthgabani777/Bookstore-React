@@ -10,7 +10,6 @@ import {
     filterByRating,
     sortItems,
 } from "../../utils/filter-utils";
-import { findItems } from "../../utils/utils";
 import "./product.css";
 
 function Product() {

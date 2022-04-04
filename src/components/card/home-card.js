@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { findItems } from "../../utils/utils";
+import { useCart } from "../../context/cart-context";
 
 function HomeCard({ product }) {
+    const { cart, dispatchCart } = useCart();
+
     return (
         <div className="card card-horizontal card-shadow">
             <div className="card-img">
@@ -14,7 +17,23 @@ function HomeCard({ product }) {
                     <div className="text-s py-2">{product.description}</div>
                 </div>
                 <div className="card-actions p-1 text-s">
-                    <button className="btn btn-secondary">Add to Cart</button>
+                    {findItems(cart.itemInCart, product) ? (
+                        <button className="btn btn-primary">
+                            <Link to="/cart">Go To Cart</Link>
+                        </button>
+                    ) : (
+                        <button
+                            className="btn btn-secondary"
+                            onClick={() => {
+                                dispatchCart({
+                                    type: "ADD_TO_CART",
+                                    payload: { product },
+                                });
+                            }}
+                        >
+                            Add to Cart
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

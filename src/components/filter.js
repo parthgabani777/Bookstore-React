@@ -24,7 +24,7 @@ function Filters({ filters, dispatchFilters, defaultValue }) {
                 <div className="input-group">
                     <input
                         type="range"
-                        class="price-input"
+                        className="price-input"
                         min="100"
                         max="10000"
                         value={price}
@@ -36,7 +36,7 @@ function Filters({ filters, dispatchFilters, defaultValue }) {
                         }}
                     />
                 </div>
-                <div class="price-label">
+                <div className="price-label">
                     <label htmlFor="minprice">0</label>
                     <label htmlFor="currentprice">5000</label>
                     <label htmlFor="maxprice">10000</label>
@@ -49,7 +49,7 @@ function Filters({ filters, dispatchFilters, defaultValue }) {
                     {["history", "science", "technology", "fiction"].map(
                         (category) => {
                             return (
-                                <div className="input-group">
+                                <div className="input-group" key={category}>
                                     <input
                                         type="checkbox"
                                         id={category}
@@ -73,7 +73,7 @@ function Filters({ filters, dispatchFilters, defaultValue }) {
                 <div>
                     {[4, 3, 2, 1].map((ratingItem) => {
                         return (
-                            <div className="input-group">
+                            <div className="input-group" key={ratingItem}>
                                 <input
                                     type="radio"
                                     name="rating"

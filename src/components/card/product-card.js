@@ -1,10 +1,45 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { findItems } from "../../utils/utils";
+import { useAuth } from "../../context/auth-context";
+import { useCart } from "../../context/cart-context";
+import { useWishlist } from "../../context/wishlist-context";
 
 function ProductCard({ product }) {
+    const { wishlist, dispatchWishlist, addToWishlist, removeFromWishlist } =
+        useWishlist();
+    const { cart, dispatchCart, addToCart } = useCart();
+    const { auth } = useAuth();
+
+    const navigation = useNavigate();
+
     return (
         <div className="card card-badge badge-icon box-shadow">
-            <i className="fas fa-heart badge badge-top-right text-m"></i>
+            {findItems(wishlist.itemInWishlist, product) ? (
+                <i
+                    className="fas fa-heart badge badge-top-right active text-m"
+                    onClick={() => {
+                        removeFromWishlist(
+                            auth.token,
+                            product,
+                            dispatchWishlist
+                        );
+                    }}
+                ></i>
+            ) : (
+                <i
+                    className="fas fa-heart badge badge-top-right text-m"
+                    onClick={() => {
+                        auth.isAuthorized
+                            ? addToWishlist(
+                                  auth.token,
+                                  product,
+                                  dispatchWishlist
+                              )
+                            : navigation("/login");
+                    }}
+                ></i>
+            )}
 
             <div className="card-img">
                 <img src={product.image} alt="Image" />
@@ -15,7 +50,26 @@ function ProductCard({ product }) {
                     <div className="fw-bold text-m">${product.price}</div>
                 </div>
                 <div className="card-actions p-1 text-s">
-                    <button className="btn btn-secondary">Add to Cart</button>
+                    {findItems(cart.itemInCart, product) ? (
+                        <button className="btn btn-primary">
+                            <Link to="/cart">Go To Cart</Link>
+                        </button>
+                    ) : (
+                        <button
+                            className="btn btn-secondary"
+                            onClick={() => {
+                                auth.isAuthorized
+                                    ? addToCart(
+                                          auth.token,
+                                          product,
+                                          dispatchCart
+                                      )
+                                    : navigation("/login");
+                            }}
+                        >
+                            Add to Cart
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
