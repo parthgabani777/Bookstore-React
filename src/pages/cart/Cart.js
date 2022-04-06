@@ -8,16 +8,17 @@ import { useNavigate } from "react-router";
 
 function Cart() {
     const { cart, dispatchCart } = useCart();
+    const { itemInCart } = cart;
     const { auth } = useAuth();
     const navigation = useNavigate();
 
-    const normalPrice = cart.itemInCart.reduce(
+    const normalPrice = itemInCart.reduce(
         (accu, currentValue) =>
             accu + currentValue.price * currentValue.quantity,
         0
     );
 
-    const discountedPrice = cart.itemInCart.reduce(
+    const discountedPrice = itemInCart.reduce(
         (accu, currentValue) =>
             accu +
             discountPriceCalculator(currentValue.price, currentValue.discount) *
@@ -25,7 +26,7 @@ function Cart() {
         0
     );
 
-    const totalQuantity = cart.itemInCart.reduce(
+    const totalQuantity = itemInCart.reduce(
         (acc, currentProduct) => acc + currentProduct.quantity,
         0
     );
@@ -39,12 +40,12 @@ function Cart() {
     return (
         <section className="main cart">
             <h1 className="text-center text-m p-2">
-                My Cart({cart.itemInCart.length})
+                My Cart({itemInCart.length})
             </h1>
 
             <div className="cart-container">
                 <div className="card-items">
-                    {cart.itemInCart.map((product) => {
+                    {itemInCart.map((product) => {
                         return <CartCard product={product} key={product._id} />;
                     })}
                 </div>

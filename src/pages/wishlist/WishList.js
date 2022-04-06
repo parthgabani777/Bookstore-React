@@ -7,6 +7,7 @@ import "./wishlist.css";
 
 function WishList() {
     const { wishlist, dispatchWishlist } = useWishlist();
+    const { itemInWishlist } = wishlist;
     const { auth } = useAuth();
     const navigation = useNavigate();
 
@@ -17,11 +18,11 @@ function WishList() {
     return (
         <section className="main">
             <h1 className="text-center text-l p-2">
-                My Wishlist ({wishlist.itemInWishlist.length})
+                My Wishlist ({itemInWishlist.length})
             </h1>
 
             <div className="card-container p-2">
-                {wishlist.itemInWishlist.map((item) => (
+                {itemInWishlist.map((item) => (
                     <ProductCard product={item} />
                 ))}
             </div>
