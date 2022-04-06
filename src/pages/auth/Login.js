@@ -42,7 +42,7 @@ function Login() {
                 <div className="input-group py-1">
                     <label htmlFor="password">Password</label>
 
-                    <div class="password-input">
+                    <div className="password-input">
                         <input
                             type={showPassword ? "text" : "password"}
                             className="input text-s"
@@ -57,7 +57,7 @@ function Login() {
                             }}
                         />
                         <i
-                            class={`fas ${
+                            className={`fas ${
                                 showPassword ? "fa-eye-slash" : "fa-eye"
                             } `}
                             onClick={() => {

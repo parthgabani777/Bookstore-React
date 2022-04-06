@@ -1,10 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useAuth } from "../context/auth-context";
+import { useCart } from "../context/cart-context";
+import { useWishlist } from "../context/wishlist-context";
 import "../css/header.css";
 
 function Header() {
+    const { cart } = useCart();
+    const { wishlist } = useWishlist();
     const { auth, signoutHandler, removeAuthTokens } = useAuth();
+    const navigation = useNavigate();
 
     return (
         <header>
@@ -48,7 +54,10 @@ function Header() {
                             <a
                                 className="nav-link btn"
                                 onClick={() => {
-                                    signoutHandler(removeAuthTokens);
+                                    signoutHandler(
+                                        removeAuthTokens,
+                                        navigation
+                                    );
                                 }}
                             >
                                 Logout
@@ -66,13 +75,13 @@ function Header() {
                         >
                             <i className="fas fa-heart nav-link btn"></i>
                             <p className="badge badge-top-right badge-text text-xs">
-                                10
+                                {wishlist.itemInWishlist.length}
                             </p>
                         </Link>
                         <Link to="cart" className="nav-item badge-icon text-m">
                             <i className="fas fa-shopping-cart nav-link btn"></i>
                             <p className="badge badge-top-right badge-text text-xs">
-                                10
+                                {cart.itemInCart.length}
                             </p>
                         </Link>
                     </div>

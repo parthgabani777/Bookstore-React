@@ -32,10 +32,11 @@ const signupHandler = async (signupCredentials, setAuthTokens, navigation) => {
     }
 };
 
-const signoutHandler = async (removeAuthTokens) => {
+const signoutHandler = async (removeAuthTokens, navigation) => {
     try {
         localStorage.removeItem("token");
         removeAuthTokens();
+        navigation("/");
     } catch (error) {
         console.log(error);
     }
