@@ -69,7 +69,7 @@
 }
 
 @media only screen and (max-width: 900px) {
-    .main {
+    .product-main {
         flex-direction: column;
     }
     .sidebar {

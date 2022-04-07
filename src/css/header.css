@@ -12,6 +12,12 @@
 .humburger{
       display: none;
 }
+.navbar .nav-item-group-hide{
+      display: none;
+}
+.navbar .nav-item-group-show{
+      display: flex;
+}
 
 .search-box{
       min-width: 40rem;

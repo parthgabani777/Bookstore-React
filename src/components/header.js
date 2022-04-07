@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useAuth } from "../context/auth-context";
@@ -11,6 +11,8 @@ function Header() {
     const { wishlist, dispatchWishlist } = useWishlist();
     const { auth, signoutHandler, removeAuthTokens } = useAuth();
     const navigation = useNavigate();
+
+    const [showNavItems, setShowNavItems] = useState(true);
 
     return (
         <header>
@@ -34,11 +36,22 @@ function Header() {
                     </button>
                 </div>
 
-                <div className="humburger text-l">
+                <div
+                    className="humburger text-l"
+                    onClick={() => {
+                        setShowNavItems(!showNavItems);
+                    }}
+                >
                     <i className="fas fa-bars btn"></i>
                 </div>
 
-                <ul className="nav-item-group text-s">
+                <ul
+                    className={`nav-item-group text-s ${
+                        showNavItems
+                            ? "nav-item-group-show"
+                            : "nav-item-group-hide"
+                    }`}
+                >
                     <li className="nav-item">
                         <Link to="homepage" className="nav-link btn">
                             Home
