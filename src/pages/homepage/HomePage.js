@@ -29,18 +29,34 @@ function HomePage() {
                     Search By Category
                 </p>
                 <div className="category-container">
-                    <div className="category-card text-l box-shadow card-tech">
+                    <Link
+                        to="/product"
+                        state="technology"
+                        className="category-card text-l box-shadow card-tech"
+                    >
                         <p>Technology</p>
-                    </div>
-                    <div className="category-card text-l box-shadow card-science">
+                    </Link>
+                    <Link
+                        to="/product"
+                        state="science"
+                        className="category-card text-l box-shadow card-tech"
+                    >
                         <p>Science</p>
-                    </div>
-                    <div className="category-card text-l box-shadow card-fiction">
+                    </Link>
+                    <Link
+                        to="/product"
+                        state="fiction"
+                        className="category-card text-l box-shadow card-tech"
+                    >
                         <p>Fiction</p>
-                    </div>
-                    <div className="category-card text-l box-shadow card-history">
+                    </Link>
+                    <Link
+                        to="/product"
+                        state="history"
+                        className="category-card text-l box-shadow card-tech"
+                    >
                         <p>History</p>
-                    </div>
+                    </Link>
                 </div>
             </section>
 

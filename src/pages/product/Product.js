@@ -1,5 +1,6 @@
 import axios from "axios";
 import { React, useEffect, useState, useReducer } from "react";
+import { useLocation } from "react-router";
 import ProductCard from "../../components/card/product-card";
 import Filters from "../../components/filter";
 import { useProduct } from "../../context/product-context";
@@ -14,6 +15,14 @@ import "./product.css";
 
 function Product() {
     const [products] = useProduct();
+    const { state: category } = useLocation();
+
+    useEffect(() => {
+        category &&
+            dispatchFilters({
+                type: `Category_${category}`,
+            });
+    }, []);
 
     const defaultValue = {
         categories: {
