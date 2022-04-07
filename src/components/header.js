@@ -7,8 +7,8 @@ import { useWishlist } from "../context/wishlist-context";
 import "../css/header.css";
 
 function Header() {
-    const { cart } = useCart();
-    const { wishlist } = useWishlist();
+    const { cart, dispatchCart } = useCart();
+    const { wishlist, dispatchWishlist } = useWishlist();
     const { auth, signoutHandler, removeAuthTokens } = useAuth();
     const navigation = useNavigate();
 
@@ -56,7 +56,9 @@ function Header() {
                                 onClick={() => {
                                     signoutHandler(
                                         removeAuthTokens,
-                                        navigation
+                                        navigation,
+                                        dispatchWishlist,
+                                        dispatchCart
                                     );
                                 }}
                             >

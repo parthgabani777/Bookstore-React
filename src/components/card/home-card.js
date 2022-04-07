@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { findItems } from "../../utils/utils";
 import { useCart } from "../../context/cart-context";
+import { useAuth } from "../../context/auth-context";
 
 function HomeCard({ product }) {
     const { cart, dispatchCart } = useCart();
+    const { auth } = useAuth();
+    const navigation = useNavigate();
 
     return (
         <div className="card card-horizontal card-shadow">
@@ -25,10 +29,13 @@ function HomeCard({ product }) {
                         <button
                             className="btn btn-secondary"
                             onClick={() => {
-                                dispatchCart({
-                                    type: "ADD_TO_CART",
-                                    payload: { product },
-                                });
+                                auth.isAuthorized
+                                    ? addToCart(
+                                          auth.token,
+                                          product,
+                                          dispatchCart
+                                      )
+                                    : navigation("/login");
                             }}
                         >
                             Add to Cart

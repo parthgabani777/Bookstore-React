@@ -28,5 +28,9 @@ export const wishlistReducer = (state, action) => {
             };
         case "SET_WISHLIST":
             return action.payload;
+        case "RESET_WISHLIST":
+            return {
+                itemInWishlist: [],
+            };
     }
 };

@@ -50,5 +50,9 @@ export const cartReducer = (state, action) => {
 
         case "SET_CART":
             return action.payload;
+        case "RESET_CART":
+            return {
+                itemInCart: [],
+            };
     }
 };

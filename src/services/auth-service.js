@@ -32,10 +32,17 @@ const signupHandler = async (signupCredentials, setAuthTokens, navigation) => {
     }
 };
 
-const signoutHandler = async (removeAuthTokens, navigation) => {
+const signoutHandler = async (
+    removeAuthTokens,
+    navigation,
+    dispatchWishlist,
+    dispatchCart
+) => {
     try {
         localStorage.removeItem("token");
         removeAuthTokens();
+        dispatchWishlist({ type: "RESET_WISHLIST", payload: {} });
+        dispatchCart({ type: "RESET_CART", payload: {} });
         navigation("/");
     } catch (error) {
         console.log(error);
