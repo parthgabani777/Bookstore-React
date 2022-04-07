@@ -22,6 +22,7 @@ function Product() {
             dispatchFilters({
                 type: `Category_${category}`,
             });
+        window.scrollTo(0, 0);
     }, []);
 
     const defaultValue = {
