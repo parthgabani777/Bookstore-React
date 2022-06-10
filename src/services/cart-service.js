@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const getCart = async (encodedToken, dispatchCart) => {
     try {
@@ -13,7 +14,7 @@ const getCart = async (encodedToken, dispatchCart) => {
             payload: { itemInCart: cart },
         });
     } catch (error) {
-        console.log(error);
+        toast.error("Cart items can not be fetched.");
     }
 };
 
@@ -33,7 +34,7 @@ const addToCart = async (encodedToken, product, dispatchCart) => {
             payload: { product },
         });
     } catch (error) {
-        console.log(error);
+        toast.error("Item can not be added.");
     }
 };
 
@@ -49,7 +50,7 @@ const removeFromCart = async (encodedToken, product, dispatchCart) => {
             payload: { product },
         });
     } catch (error) {
-        console.log(error);
+        toast.error("Item can not be removed.");
     }
 };
 
@@ -78,7 +79,7 @@ const changeQuantity = async (encodedToken, product, type, dispatchCart) => {
             }
         );
     } catch (error) {
-        console.log(error);
+        toast.error("Quantity can not be changed.");
     }
 };
 

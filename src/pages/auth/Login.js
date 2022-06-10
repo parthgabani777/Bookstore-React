@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../context/auth-context";
 import "./auth.css";
+import { toast } from "react-toastify";
+
 function Login() {
     const navigation = useNavigate();
     const { setAuthTokens, loginHandler } = useAuth();
 
     const defaultLoginCredentials = {
-        email: "adarshbalika@gmail.com",
-        password: "adarshbalika",
+        email: "gabaniparth04@gmail.com",
+        password: "parth123",
     };
     const [loginCredentials, setLoginCredentials] = useState(
         defaultLoginCredentials
@@ -81,11 +83,15 @@ function Login() {
                     <button
                         className="btn btn-secondary auth-btn br-1"
                         onClick={async () => {
-                            await loginHandler(
-                                loginCredentials,
-                                setAuthTokens,
-                                navigation
-                            );
+                            try {
+                                await loginHandler(
+                                    loginCredentials,
+                                    setAuthTokens,
+                                    navigation
+                                );
+                            } catch (error) {
+                                toast.error(error);
+                            }
                         }}
                     >
                         Login

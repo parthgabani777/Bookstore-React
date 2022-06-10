@@ -11,7 +11,14 @@ const loginHandler = async (loginCredentials, setAuthTokens, navigation) => {
         setAuthTokens(encodedToken);
         navigation("/");
     } catch (error) {
-        console.log(error);
+        switch (error.response.status) {
+            case 401:
+                throw "Wrong password.";
+            case 404:
+                throw "Username not found.";
+            default:
+                throw "Login failed.";
+        }
     }
 };
 
@@ -28,7 +35,12 @@ const signupHandler = async (signupCredentials, setAuthTokens, navigation) => {
         setAuthTokens(encodedToken);
         navigation("/");
     } catch (error) {
-        console.log(error);
+        switch (error.response.status) {
+            case 422:
+                throw "Username alrady exists.";
+            default:
+                throw "Signup failed.";
+        }
     }
 };
 
@@ -38,15 +50,11 @@ const signoutHandler = async (
     dispatchWishlist,
     dispatchCart
 ) => {
-    try {
-        localStorage.removeItem("token");
-        removeAuthTokens();
-        dispatchWishlist({ type: "RESET_WISHLIST", payload: {} });
-        dispatchCart({ type: "RESET_CART", payload: {} });
-        navigation("/");
-    } catch (error) {
-        console.log(error);
-    }
+    localStorage.removeItem("token");
+    removeAuthTokens();
+    dispatchWishlist({ type: "RESET_WISHLIST", payload: {} });
+    dispatchCart({ type: "RESET_CART", payload: {} });
+    navigation("/");
 };
 
 export { loginHandler, signupHandler, signoutHandler };

@@ -39,21 +39,21 @@ function HomePage() {
                     <Link
                         to="/product"
                         state="science"
-                        className="category-card text-l box-shadow card-tech"
+                        className="category-card text-l box-shadow card-science"
                     >
                         <p>Science</p>
                     </Link>
                     <Link
                         to="/product"
                         state="fiction"
-                        className="category-card text-l box-shadow card-tech"
+                        className="category-card text-l box-shadow card-fiction"
                     >
                         <p>Fiction</p>
                     </Link>
                     <Link
                         to="/product"
                         state="history"
-                        className="category-card text-l box-shadow card-tech"
+                        className="category-card text-l box-shadow card-history"
                     >
                         <p>History</p>
                     </Link>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const getWishlist = async (encodedToken, dispatchWishlist) => {
     try {
@@ -13,7 +14,7 @@ const getWishlist = async (encodedToken, dispatchWishlist) => {
             payload: { itemInWishlist: wishlist },
         });
     } catch (error) {
-        console.log(error);
+        toast.error("Wishlist items can not be fetched.");
     }
 };
 
@@ -33,7 +34,7 @@ const addToWishlist = async (encodedToken, product, dispatchWishlist) => {
             payload: { product },
         });
     } catch (error) {
-        console.log(error);
+        toast.error("Item can not be added.");
     }
 };
 
@@ -52,7 +53,7 @@ const removeFromWishlist = async (encodedToken, product, dispatchWishlist) => {
             payload: { product },
         });
     } catch (error) {
-        console.log(error);
+        toast.error("Item can not be removed.");
     }
 };
 

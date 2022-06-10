@@ -1,11 +1,12 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const getProducts = async () => {
     try {
         const { data } = await axios.get("/api/products");
         return data;
     } catch (error) {
-        console.log(error);
+        toast.error("Item can not be fetched.");
     }
 };
 
