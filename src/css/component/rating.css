@@ -1,0 +1,30 @@
+.rating{
+      color: var(--grey-white-color);
+      display: flex;
+      width: fit-content;
+      align-items: center;
+      gap: var(--spacing-xs);
+}
+
+.rating .active{
+      color: var(--rating-average-color);
+}
+.rating-high .active{
+      color: var(--rating-high-color);
+}
+.rating-low .active{
+      color: var(--rating-low-color);
+}
+
+.rating-text{
+      background-color: var(--rating-average-color);
+      color: var(--text-color);
+      padding: var(--spacing-xs);
+      border-radius: .5rem;
+}
+.rating-text.rating-high{
+      background-color: var(--rating-high-color);
+}
+.rating-text.rating-low{
+      background-color: var(--rating-low-color);
+}

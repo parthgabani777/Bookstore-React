@@ -68,7 +68,7 @@ function Filters({ filters, dispatchFilters, defaultValue }) {
                 </div>
             </div>
 
-            <div className="rating">
+            <div className="rating-filter">
                 <p className="sidebar-subtitle">Rating</p>
                 <div>
                     {[4, 3, 2, 1].map((ratingItem) => {

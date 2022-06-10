@@ -4,6 +4,7 @@ import { findItems } from "../../utils/utils";
 import { useAuth } from "../../context/auth-context";
 import { useCart } from "../../context/cart-context";
 import { useWishlist } from "../../context/wishlist-context";
+import "./product-card.css";
 
 function ProductCard({ product }) {
     const { wishlist, dispatchWishlist, addToWishlist, removeFromWishlist } =
@@ -47,7 +48,13 @@ function ProductCard({ product }) {
             <div className="card-body">
                 <div className="card-content p-1">
                     <div className="fw-semibold text-s">{product.title}</div>
-                    <div className="fw-bold text-m">${product.price}</div>
+                    <div className="fw-bold text-m pt-1 price-rating-container">
+                        ${product.price}{" "}
+                        <div className="rating rating-text text-m">
+                            <p>{product.rating}</p>
+                            <i className="fas fa-star"></i>
+                        </div>
+                    </div>
                 </div>
                 <div className="card-actions p-1 text-s">
                     {findItems(cart.itemInCart, product) ? (

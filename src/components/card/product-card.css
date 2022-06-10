@@ -1,0 +1,11 @@
+.price-rating-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding-top: 5px;
+}
+.price-rating-container .rating {
+    font-size: 2rem;
+    gap: 5px;
+    padding: 0 0.5rem;
+}
