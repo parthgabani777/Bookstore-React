@@ -21,11 +21,15 @@ function WishList() {
                 My Wishlist ({itemInWishlist.length})
             </h1>
 
-            <div className="card-container p-2">
-                {itemInWishlist.map((item) => (
-                    <ProductCard product={item} />
-                ))}
-            </div>
+            {itemInWishlist.length === 0 ? (
+                <h1 className="text-center text-m p-2">No item in wishlist</h1>
+            ) : (
+                <div className="card-container p-2">
+                    {itemInWishlist.map((item) => (
+                        <ProductCard product={item} />
+                    ))}
+                </div>
+            )}
         </section>
     );
 }
