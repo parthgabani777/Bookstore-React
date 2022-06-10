@@ -7,6 +7,7 @@ import {
     Product,
     WishList,
     Cart,
+    NotFound,
 } from "./pages/Pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -23,6 +24,7 @@ function App() {
                     <Route path="product" element={<Product />} />
                     <Route path="wishlist" element={<WishList />} />
                     <Route path="cart" element={<Cart />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
         </div>

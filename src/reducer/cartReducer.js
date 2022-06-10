@@ -1,8 +1,10 @@
+import { cartConstant } from "./reducer-constant";
+
 export const cartReducer = (state, action) => {
     const { id } = action.payload.product ?? {};
 
     switch (action.type) {
-        case "ADD_TO_CART":
+        case cartConstant.ADD_TO_CART:
             return {
                 ...state,
                 itemInCart: state.itemInCart.concat({
@@ -11,13 +13,13 @@ export const cartReducer = (state, action) => {
                 }),
             };
 
-        case "REMOVE_FROM_CART":
+        case cartConstant.REMOVE_FROM_CART:
             return {
                 ...state,
                 itemInCart: state.itemInCart.filter((item) => item.id != id),
             };
 
-        case "INCREASE_QUANTITY":
+        case cartConstant.INCREASE_QUANTITY:
             return {
                 ...state,
                 itemInCart: state.itemInCart.map((item) =>
@@ -27,7 +29,7 @@ export const cartReducer = (state, action) => {
                 ),
             };
 
-        case "DECREASE_QUANTITY":
+        case cartConstant.DECREASE_QUANTITY:
             let isItemQuantityLess = state.itemInCart.some(
                 (item) => item.id === id && item.quantity <= 1
             );
@@ -48,9 +50,9 @@ export const cartReducer = (state, action) => {
                       ),
                   };
 
-        case "SET_CART":
+        case cartConstant.SET_CART:
             return action.payload;
-        case "RESET_CART":
+        case cartConstant.RESET_CART:
             return {
                 itemInCart: [],
             };
