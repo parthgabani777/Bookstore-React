@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../context/auth-context";
 import "./auth.css";
+import { toast } from "react-toastify";
 
 function SignUp() {
     const navigation = useNavigate();
@@ -112,11 +113,15 @@ function SignUp() {
                     <button
                         className="btn btn-secondary auth-btn br-1"
                         onClick={async () => {
-                            await signupHandler(
-                                signupCredentials,
-                                setAuthTokens,
-                                navigation
-                            );
+                            try {
+                                await signupHandler(
+                                    signupCredentials,
+                                    setAuthTokens,
+                                    navigation
+                                );
+                            } catch (error) {
+                                toast.error(error);
+                            }
                         }}
                     >
                         Create an Account
