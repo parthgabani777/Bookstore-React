@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router";
+
 function Filters({ filters, dispatchFilters, defaultValue }) {
     const { categories, rating, sort, price } = filters;
+    const navigation = useNavigate();
 
     return (
         <div className="sidebar box-shadow">
@@ -12,6 +15,7 @@ function Filters({ filters, dispatchFilters, defaultValue }) {
                             type: "Reset",
                             payload: { defaultValue },
                         });
+                        navigation("/product");
                     }}
                 >
                     Clear
