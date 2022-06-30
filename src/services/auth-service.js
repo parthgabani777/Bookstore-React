@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const loginHandler = async (loginCredentials, setAuthTokens, navigation) => {
     try {
@@ -10,12 +11,14 @@ const loginHandler = async (loginCredentials, setAuthTokens, navigation) => {
         localStorage.setItem("token", encodedToken);
         setAuthTokens(encodedToken);
         navigation("/");
+        toast.success("Successfully logged in.");
     } catch (error) {
+        console.log(loginCredentials, error);
         switch (error.response.status) {
             case 401:
                 throw "Wrong password.";
             case 404:
-                throw "Username not found.";
+                throw "Email not found.";
             default:
                 throw "Login failed.";
         }

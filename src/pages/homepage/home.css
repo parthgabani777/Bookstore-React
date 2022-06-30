@@ -90,4 +90,7 @@
         flex-direction: column;
         max-height: none;
     }
+    .home .card-horizontal {
+        max-height: none;
+    }
 }

@@ -15,7 +15,7 @@ function ProductCard({ product }) {
     const navigation = useNavigate();
 
     return (
-        <div className="card card-badge badge-icon box-shadow">
+        <div className="card card-badge badge-icon box-shadow product-card">
             {findItems(wishlist.itemInWishlist, product) ? (
                 <i
                     className="fas fa-heart badge badge-top-right active text-m"

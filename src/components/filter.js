@@ -64,7 +64,10 @@ function Filters({ filters, dispatchFilters, defaultValue }) {
                                             });
                                         }}
                                     />
-                                    <label htmlFor={category}>{category}</label>
+                                    <label htmlFor={category}>
+                                        {category.charAt(0).toUpperCase() +
+                                            category.slice(1)}
+                                    </label>
                                 </div>
                             );
                         }
@@ -91,7 +94,7 @@ function Filters({ filters, dispatchFilters, defaultValue }) {
                                     }}
                                 />
                                 <label htmlFor={`rating${ratingItem}`}>
-                                    {ratingItem} star above
+                                    {ratingItem} star or above
                                 </label>
                             </div>
                         );

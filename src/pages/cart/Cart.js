@@ -5,6 +5,7 @@ import "./cart.css";
 import { discountPriceCalculator } from "../../utils/utils";
 import { useAuth } from "../../context/auth-context";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 function Cart() {
     const { cart, dispatchCart } = useCart();
@@ -32,7 +33,10 @@ function Cart() {
     );
 
     useEffect(() => {
-        auth.isAuthorized || navigation("/login");
+        if (!auth.isAuthorized) {
+            navigation("/login");
+            toast.error("Login first.");
+        }
     }, []);
 
     const totalPrice = normalPrice - discountedPrice;

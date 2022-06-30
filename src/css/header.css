@@ -2,6 +2,9 @@
 .navbar .badge-icon .nav-link {
     padding: var(--spacing-xs);
 }
+.navbar .badge-icon .nav-link.active {
+    background-color: var(--secondary-color);
+}
 .navbar .badge-icon .nav-link:hover {
     background: none;
 }

@@ -4,6 +4,7 @@ import ProductCard from "../../components/card/product-card";
 import { useAuth } from "../../context/auth-context";
 import { useWishlist } from "../../context/wishlist-context";
 import "./wishlist.css";
+import { toast } from "react-toastify";
 
 function WishList() {
     const { wishlist, dispatchWishlist } = useWishlist();
@@ -12,7 +13,10 @@ function WishList() {
     const navigation = useNavigate();
 
     useEffect(() => {
-        auth.isAuthorized || navigation("/login");
+        if (!auth.isAuthorized) {
+            navigation("/login");
+            toast.error("Login first.");
+        }
     }, []);
 
     return (

@@ -16,7 +16,7 @@ export const products = [
         categoryName: "history",
         rating: 2,
         discount: 20,
-        image: "https://i.ibb.co/T2pDSf9/51m-Fg-RBo-Li-L-SY291-BO1-204-203-200-QL40-FMwebp.webp",
+        image: "https://i.imgur.com/h6igzB5.jpg?1",
     },
     {
         _id: uuid(),
@@ -28,7 +28,7 @@ export const products = [
         categoryName: "history",
         rating: 4,
         discount: 10,
-        image: "https://i.ibb.co/pjwkKHL/61vdzs-XM-AL-SY344-BO1-204-203-200.jpg",
+        image: "https://i.imgur.com/lT8VqNY.jpg",
     },
     {
         _id: uuid(),
@@ -38,7 +38,7 @@ export const products = [
         categoryName: "history",
         rating: 4,
         discount: 50,
-        image: "https://i.ibb.co/y5dyjV7/51ckb9r-Xkj-L-SX301-BO1-204-203-200.jpg",
+        image: "https://i.imgur.com/tZAqj2T.jpg",
     },
     {
         _id: uuid(),
@@ -48,7 +48,7 @@ export const products = [
         categoryName: "science",
         rating: 1,
         discount: 40,
-        image: "https://i.ibb.co/yRFgY79/71-Utl-N4-Qf-UL.jpg",
+        image: "https://i.imgur.com/5a02oUs.jpg",
     },
     {
         _id: uuid(),
@@ -58,7 +58,7 @@ export const products = [
         categoryName: "science",
         rating: 4,
         discount: 10,
-        image: "https://i.ibb.co/3Y4HjRh/5100-AFQRX7-L-SX302-BO1-204-203-200.jpg",
+        image: "https://i.imgur.com/heTpJAx.jpg",
     },
     {
         _id: uuid(),
@@ -68,7 +68,7 @@ export const products = [
         categoryName: "science",
         rating: 3,
         discount: 20,
-        image: "https://i.ibb.co/TmyDgjj/717s6s-N5b3-L.jpg",
+        image: "https://i.imgur.com/gcy4HTM.jpg",
     },
     {
         _id: uuid(),
@@ -78,7 +78,7 @@ export const products = [
         categoryName: "science",
         rating: 5,
         discount: 30,
-        image: "https://i.ibb.co/p3ftZZd/A1-Je-Ml-DMVg-L.jpg",
+        image: "https://i.imgur.com/fSVozFc.jpg",
     },
     {
         _id: uuid(),
@@ -88,7 +88,7 @@ export const products = [
         categoryName: "science",
         rating: 3,
         discount: 10,
-        image: "https://i.ibb.co/XLc9PRP/71q-NW-I214-L.jpg",
+        image: "https://i.imgur.com/GHGKPNz.jpg",
     },
     {
         _id: uuid(),
@@ -98,7 +98,7 @@ export const products = [
         categoryName: "fiction",
         rating: 3.5,
         discount: 40,
-        image: "https://i.ibb.co/6nY58fC/ohbd3xqukj7do2f0o5txmhghfsva.jpg",
+        image: "https://i.imgur.com/q6E1gMe.jpg",
     },
     {
         _id: uuid(),
@@ -108,7 +108,7 @@ export const products = [
         categoryName: "fiction",
         rating: 3.5,
         discount: 25,
-        image: "https://i.ibb.co/y4jzzG4/kxk6iwn543doz8jqbs2sckh2fcot.jpg",
+        image: "https://i.imgur.com/drdlDsE.jpg",
     },
     {
         _id: uuid(),
@@ -118,7 +118,7 @@ export const products = [
         categoryName: "fiction",
         rating: 3,
         discount: 40,
-        image: "https://i.ibb.co/KF6Xdtw/swd3lfscp8lshlhuwfjng9s92o8q.jpg",
+        image: "https://i.imgur.com/7dQaZ8y.jpg",
     },
     {
         _id: uuid(),
@@ -128,7 +128,7 @@ export const products = [
         categoryName: "fiction",
         rating: 4.5,
         discount: 35,
-        image: "https://i.ibb.co/25NpB3T/xyex2scmaoaj9cvf3hr0i7xn8c7x.jpg",
+        image: "https://i.imgur.com/VBjBP43.jpg",
     },
     {
         _id: uuid(),
@@ -138,7 +138,7 @@ export const products = [
         categoryName: "fiction",
         rating: 3,
         discount: 25,
-        image: "https://i.ibb.co/mvkCxhY/ihwv965787rm0zvkj6hg3f2taasw.jpg",
+        image: "https://i.imgur.com/4SAuiPv.jpg",
     },
     {
         _id: uuid(),
@@ -148,7 +148,7 @@ export const products = [
         categoryName: "technology",
         rating: 4,
         discount: 10,
-        image: "https://i.ibb.co/Ykq1pyL/91as-IC1f-Rw-L.jpg",
+        image: "https://i.imgur.com/QwBrKDC.png",
     },
     {
         _id: uuid(),
@@ -158,7 +158,7 @@ export const products = [
         categoryName: "technology",
         rating: 3,
         discount: 15,
-        image: "https://i.ibb.co/KLqT7dP/813hbklw-WBL.jpg",
+        image: "https://i.imgur.com/GxSbFBv.jpg",
     },
     {
         _id: uuid(),
@@ -168,7 +168,7 @@ export const products = [
         categoryName: "technology",
         rating: 5,
         discount: 50,
-        image: "https://i.ibb.co/HYH5dk7/512-T-d-VK6-L-SX376-BO1-204-203-200.jpg",
+        image: "https://i.imgur.com/0oWeKKF.jpg",
     },
     {
         _id: uuid(),
@@ -178,7 +178,7 @@ export const products = [
         categoryName: "technology",
         rating: 1,
         discount: 70,
-        image: "https://i.ibb.co/swhf0XP/51-AOPRqo-YTL-SX342-SY445-QL70-ML2.jpg",
+        image: "https://i.imgur.com/enr2uwB.jpg",
     },
     {
         _id: uuid(),
@@ -188,7 +188,7 @@ export const products = [
         categoryName: "technology",
         rating: 2.5,
         discount: 40,
-        image: "https://i.ibb.co/s9jHR8G/91-Wlv-END3r-L.jpg",
+        image: "https://i.imgur.com/bbtq5hF.jpg",
     },
     {
         _id: uuid(),
@@ -198,6 +198,6 @@ export const products = [
         categoryName: "technology",
         rating: 3,
         discount: 20,
-        image: "https://i.ibb.co/dDCMGdg/71m-Kv-D89o-EL.jpg",
+        image: "https://i.imgur.com/723VADF.png",
     },
 ];

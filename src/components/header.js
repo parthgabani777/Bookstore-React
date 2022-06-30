@@ -1,5 +1,5 @@
 import { React, useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useAuth } from "../context/auth-context";
 import { useCart } from "../context/cart-context";
@@ -20,14 +20,14 @@ function Header() {
     const onChangeHandler = (e) => {
         setSearch(e.target.value);
     };
-    const debounce = (cb, delay = 1000) => {
+    const debounce = (cb, delay = 300) => {
         let timer;
         return (...args) => {
             clearTimeout(timer);
             timer = setTimeout(() => cb(...args), delay);
         };
     };
-    const debouncedOnChangeHandler = debounce(onChangeHandler, 1000);
+    const debouncedOnChangeHandler = debounce(onChangeHandler, 300);
 
     // For filtering the products based on search query
     const filteredProducts = product.filter((product) => {
@@ -109,14 +109,22 @@ function Header() {
                     }`}
                 >
                     <li className="nav-item">
-                        <Link to="homepage" className="nav-link btn">
+                        <NavLink
+                            to="homepage"
+                            activeclassname="active"
+                            className="nav-link btn"
+                        >
                             Home
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link to="product" className="nav-link btn">
+                        <NavLink
+                            to="product"
+                            activeclassname="active"
+                            className="nav-link btn"
+                        >
                             Explore
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
                         {auth.isAuthorized ? (
@@ -134,9 +142,9 @@ function Header() {
                                 Logout
                             </a>
                         ) : (
-                            <Link to="login" className="nav-link btn">
+                            <NavLink to="login" className="nav-link btn">
                                 Login
-                            </Link>
+                            </NavLink>
                         )}
                     </li>
                     <div className="nav-icons">

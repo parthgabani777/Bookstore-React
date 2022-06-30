@@ -9,3 +9,10 @@
     gap: 5px;
     padding: 0 0.5rem;
 }
+
+.product-card .badge {
+    background: var(--secondary-color);
+}
+.product-card .card-img {
+    min-height: 300px;
+}

@@ -5,7 +5,7 @@ import { useCart } from "../../context/cart-context";
 import { useAuth } from "../../context/auth-context";
 
 function HomeCard({ product }) {
-    const { cart, dispatchCart } = useCart();
+    const { cart, dispatchCart, addToCart } = useCart();
     const { auth } = useAuth();
     const navigation = useNavigate();
 
@@ -22,12 +22,15 @@ function HomeCard({ product }) {
                 </div>
                 <div className="card-actions p-1 text-s">
                     {findItems(cart.itemInCart, product) ? (
-                        <button className="btn btn-primary">
-                            <Link to="/cart">Go To Cart</Link>
-                        </button>
+                        <Link
+                            to="/cart"
+                            className="btn btn-primary text-center"
+                        >
+                            Go To Cart
+                        </Link>
                     ) : (
                         <button
-                            className="btn btn-secondary"
+                            className="btn btn-secondary text-s"
                             onClick={() => {
                                 auth.isAuthorized
                                     ? addToCart(

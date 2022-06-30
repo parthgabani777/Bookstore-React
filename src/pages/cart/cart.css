@@ -113,5 +113,10 @@
     .card-horizontal .card-img {
         width: 100%;
         justify-content: center;
+        margin: auto;
+    }
+    .cart .card-price {
+        min-width: 100%;
+        height: fit-content;
     }
 }

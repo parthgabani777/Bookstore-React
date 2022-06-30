@@ -33,6 +33,8 @@ const addToWishlist = async (encodedToken, product, dispatchWishlist) => {
             type: "ADD_TO_WISHLIST",
             payload: { product },
         });
+        toast.dismiss();
+        toast.success("Item added in wishlist");
     } catch (error) {
         toast.error("Item can not be added.");
     }
@@ -52,6 +54,8 @@ const removeFromWishlist = async (encodedToken, product, dispatchWishlist) => {
             type: "REMOVE_FROM_WISHLIST",
             payload: { product },
         });
+        toast.dismiss();
+        toast.error("Item removed from wishlist");
     } catch (error) {
         toast.error("Item can not be removed.");
     }

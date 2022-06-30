@@ -1,7 +1,8 @@
 import { useCart } from "../../context/cart-context";
-import { priceAfterDiscountCalculator } from "../../utils/utils";
+import { findItems, priceAfterDiscountCalculator } from "../../utils/utils";
 import { useWishlist } from "../../context/wishlist-context";
 import { useAuth } from "../../context/auth-context";
+import { Link } from "react-router-dom";
 
 function CartCard({ product }) {
     const { cart, dispatchCart, changeQuantity, removeFromCart } = useCart();
@@ -12,6 +13,11 @@ function CartCard({ product }) {
     const discountedPrice = priceAfterDiscountCalculator(
         product.price,
         product.discount
+    );
+
+    const isProductExistInWishlist = findItems(
+        wishlist.itemInWishlist,
+        product
     );
 
     return (
@@ -40,12 +46,12 @@ function CartCard({ product }) {
                                     changeQuantity(
                                         auth.token,
                                         product,
-                                        "increment",
+                                        "decrement",
                                         dispatchCart
                                     );
                                 }}
                             >
-                                <i className="fas fa-plus"></i>
+                                <i className="fas fa-minus"></i>
                             </div>
                             <div className="counter-text">
                                 {product.quantity}
@@ -56,37 +62,46 @@ function CartCard({ product }) {
                                     changeQuantity(
                                         auth.token,
                                         product,
-                                        "decrement",
+                                        "increment",
                                         dispatchCart
                                     );
                                 }}
                             >
-                                <i className="fas fa-minus"></i>
+                                <i className="fas fa-plus"></i>
                             </div>
                         </span>
                     </div>
                 </div>
                 <div className="card-actions text-s">
                     <button
-                        className="btn btn-primary"
+                        className="btn btn-primary text-s"
                         onClick={() => {
                             removeFromCart(auth.token, product, dispatchCart);
                         }}
                     >
                         Remove From Cart
                     </button>
-                    <button
-                        className="btn btn-dark"
-                        onClick={() => {
-                            addToWishlist(
-                                auth.token,
-                                product,
-                                dispatchWishlist
-                            );
-                        }}
-                    >
-                        Add To Wishlist
-                    </button>
+                    {isProductExistInWishlist ? (
+                        <Link
+                            to="/wishlist"
+                            className="btn btn-dark text-center"
+                        >
+                            Go to wishlist
+                        </Link>
+                    ) : (
+                        <button
+                            className="btn btn-dark text-s"
+                            onClick={() => {
+                                addToWishlist(
+                                    auth.token,
+                                    product,
+                                    dispatchWishlist
+                                );
+                            }}
+                        >
+                            Add To Wishlist
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

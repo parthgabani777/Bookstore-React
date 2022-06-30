@@ -33,6 +33,8 @@ const addToCart = async (encodedToken, product, dispatchCart) => {
             type: "ADD_TO_CART",
             payload: { product },
         });
+        toast.dismiss();
+        toast.success("Item added in cart.");
     } catch (error) {
         toast.error("Item can not be added.");
     }
@@ -49,6 +51,8 @@ const removeFromCart = async (encodedToken, product, dispatchCart) => {
             type: "REMOVE_FROM_CART",
             payload: { product },
         });
+        toast.dismiss();
+        toast.success("Item removed from cart.");
     } catch (error) {
         toast.error("Item can not be removed.");
     }

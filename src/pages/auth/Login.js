@@ -10,8 +10,8 @@ function Login() {
     const { setAuthTokens, loginHandler } = useAuth();
 
     const defaultLoginCredentials = {
-        email: "gabaniparth04@gmail.com",
-        password: "parth123",
+        email: "",
+        password: "",
     };
     const [loginCredentials, setLoginCredentials] = useState(
         defaultLoginCredentials
@@ -19,9 +19,33 @@ function Login() {
 
     const [showPassword, setShowPassword] = useState(false);
 
+    const login = async (loginCredentials) => {
+        try {
+            await loginHandler(loginCredentials, setAuthTokens, navigation);
+        } catch (error) {
+            toast.error(error);
+        }
+    };
+
+    const submitLoginCredentials = async (e) => {
+        e.preventDefault();
+        login(loginCredentials);
+    };
+
+    const guestLoginHandler = (e) => {
+        e.preventDefault();
+        login({
+            email: "gabaniparth04@gmail.com",
+            password: "parth123",
+        });
+    };
+
     return (
         <section className="auth text-s">
-            <div className="auth-form box-shadow p-4">
+            <form
+                className="auth-form box-shadow p-4"
+                onSubmit={submitLoginCredentials}
+            >
                 <h3 className="text-l text-center py-1">Login</h3>
 
                 <div className="input-group py-1">
@@ -38,6 +62,7 @@ function Login() {
                                 email: e.target.value,
                             });
                         }}
+                        required
                     />
                 </div>
 
@@ -57,6 +82,7 @@ function Login() {
                                     password: e.target.value,
                                 });
                             }}
+                            required
                         />
                         <i
                             className={`fas ${
@@ -69,32 +95,18 @@ function Login() {
                     </div>
                 </div>
 
-                <div className="input-checkbox py-1">
-                    <div>
-                        <input type="checkbox" id="remember_me" />
-                        <label htmlFor="remember_me">Remember Me</label>
-                    </div>
-                    <a href="" className="link-blue">
-                        Forget Password?
-                    </a>
+                <div className="py-1 text-center">
+                    <button className="btn btn-secondary auth-btn br-1">
+                        Login
+                    </button>
                 </div>
 
                 <div className="py-1 text-center">
                     <button
                         className="btn btn-secondary auth-btn br-1"
-                        onClick={async () => {
-                            try {
-                                await loginHandler(
-                                    loginCredentials,
-                                    setAuthTokens,
-                                    navigation
-                                );
-                            } catch (error) {
-                                toast.error(error);
-                            }
-                        }}
+                        onClick={guestLoginHandler}
                     >
-                        Login
+                        Login as guest
                     </button>
                 </div>
 
@@ -103,7 +115,7 @@ function Login() {
                         Create an Account
                     </Link>
                 </div>
-            </div>
+            </form>
         </section>
     );
 }
