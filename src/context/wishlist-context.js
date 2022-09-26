@@ -7,7 +7,7 @@ import {
     getWishlist,
 } from "../services/wishlist-service";
 
-const defaultwishlistValue = {
+const defaultWishlistValue = {
     itemInWishlist: [],
 };
 
@@ -18,7 +18,7 @@ const useWishlist = () => useContext(wishlistContext);
 const WishlistProvider = ({ children }) => {
     const [wishlist, dispatchWishlist] = useReducer(
         wishlistReducer,
-        defaultwishlistValue
+        defaultWishlistValue
     );
 
     const { auth } = useAuth();

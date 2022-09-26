@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const getCart = async (encodedToken, dispatchCart) => {
     try {
-        const { data } = await axios.get(`/api/user/cart`, {
+        const { data } = await axios.get(`/user/cart`, {
             headers: {
                 authorization: encodedToken,
             },
@@ -21,7 +21,7 @@ const getCart = async (encodedToken, dispatchCart) => {
 const addToCart = async (encodedToken, product, dispatchCart) => {
     try {
         const { data } = await axios.post(
-            `/api/user/cart`,
+            `/user/cart`,
             { product },
             {
                 headers: {
@@ -42,7 +42,7 @@ const addToCart = async (encodedToken, product, dispatchCart) => {
 
 const removeFromCart = async (encodedToken, product, dispatchCart) => {
     try {
-        const { data } = await axios.delete(`/api/user/cart/${product._id}`, {
+        const { data } = await axios.delete(`/user/cart/${product._id}`, {
             headers: {
                 authorization: encodedToken,
             },
@@ -69,8 +69,17 @@ const changeQuantity = async (encodedToken, product, type, dispatchCart) => {
                   type: "DECREASE_QUANTITY",
                   payload: { product },
               });
+
+        if (product.qty <= 1 && type === "decrement") {
+            await axios.delete(`/user/cart/${product._id}`, {
+                headers: {
+                    authorization: encodedToken,
+                },
+            });
+            return;
+        }
         const { data } = await axios.post(
-            `/api/user/cart`,
+            `/user/cart/${product._id}`,
             {
                 action: {
                     type: type,

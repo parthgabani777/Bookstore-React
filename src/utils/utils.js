@@ -1,5 +1,5 @@
 const findItems = (items, findItem) => {
-    return items.find((item) => item.id === findItem.id);
+    return items.find((item) => item._id === findItem._id);
 };
 
 const priceAfterDiscountCalculator = (price, discount) => {

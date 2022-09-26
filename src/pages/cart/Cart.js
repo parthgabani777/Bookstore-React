@@ -13,25 +13,6 @@ function Cart() {
     const { auth } = useAuth();
     const navigation = useNavigate();
 
-    const normalPrice = itemInCart.reduce(
-        (accu, currentValue) =>
-            accu + currentValue.price * currentValue.quantity,
-        0
-    );
-
-    const discountedPrice = itemInCart.reduce(
-        (accu, currentValue) =>
-            accu +
-            discountPriceCalculator(currentValue.price, currentValue.discount) *
-                currentValue.quantity,
-        0
-    );
-
-    const totalQuantity = itemInCart.reduce(
-        (acc, currentProduct) => acc + currentProduct.quantity,
-        0
-    );
-
     useEffect(() => {
         if (!auth.isAuthorized) {
             navigation("/login");
@@ -39,12 +20,31 @@ function Cart() {
         }
     }, []);
 
+    const normalPrice = itemInCart.reduce(
+        (accumulator, currentValue) =>
+            accumulator + currentValue.price * currentValue.qty,
+        0
+    );
+
+    const discountedPrice = itemInCart.reduce(
+        (accumulator, currentValue) =>
+            accumulator +
+            discountPriceCalculator(currentValue.price, currentValue.discount) *
+                currentValue.qty,
+        0
+    );
+
+    const totalQuantity = itemInCart.reduce(
+        (acc, currentProduct) => acc + currentProduct.qty,
+        0
+    );
+
     const totalPrice = normalPrice - discountedPrice;
 
     return (
         <section className="main cart">
             <h1 className="text-center text-l p-2">
-                My Cart({itemInCart.length})
+                My Cart ({itemInCart.length})
             </h1>
 
             {itemInCart.length === 0 ? (
@@ -75,7 +75,7 @@ function Cart() {
                                         <p>${discountedPrice}</p>
                                     </div>
                                     <div className="card-row">
-                                        <p>Delievery Charge</p>
+                                        <p>Delivery Charge</p>
                                         <p>$0</p>
                                     </div>
                                 </div>

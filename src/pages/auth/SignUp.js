@@ -4,6 +4,8 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../../context/auth-context";
 import "./auth.css";
 import { toast } from "react-toastify";
+import { useCart } from "../../context/cart-context";
+import { useWishlist } from "../../context/wishlist-context";
 
 function SignUp() {
     const navigation = useNavigate();
@@ -22,10 +24,19 @@ function SignUp() {
 
     const [showPassword, setShowPassword] = useState(false);
 
+    const { dispatchCart } = useCart();
+    const { dispatchWishlist } = useWishlist();
+
     const submitSignupCredentials = async (e) => {
         e.preventDefault();
         try {
-            await signupHandler(signupCredentials, setAuthTokens, navigation);
+            await signupHandler(
+                signupCredentials,
+                setAuthTokens,
+                navigation,
+                dispatchCart,
+                dispatchWishlist
+            );
         } catch (error) {
             toast.error(error);
         }

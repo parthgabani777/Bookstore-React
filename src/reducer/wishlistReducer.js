@@ -1,7 +1,7 @@
 import { findItems } from "../utils/utils";
 
 export const wishlistReducer = (state, action) => {
-    const { id } = action.payload.product ?? {};
+    const { _id } = action.payload.product ?? {};
 
     switch (action.type) {
         case "ADD_TO_WISHLIST":
@@ -23,7 +23,7 @@ export const wishlistReducer = (state, action) => {
             return {
                 ...state,
                 itemInWishlist: state.itemInWishlist.filter(
-                    (item) => item.id !== id
+                    (item) => item._id !== _id
                 ),
             };
         case "SET_WISHLIST":

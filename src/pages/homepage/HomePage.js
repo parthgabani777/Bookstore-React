@@ -65,7 +65,7 @@ function HomePage() {
                 <div className="card-container">
                     {products.map((product, index) =>
                         index < 2 ? (
-                            <HomeCard product={product} key={product.id} />
+                            <HomeCard product={product} key={product._id} />
                         ) : (
                             ""
                         )

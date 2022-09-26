@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const getWishlist = async (encodedToken, dispatchWishlist) => {
     try {
-        const { data } = await axios.get(`/api/user/wishlist`, {
+        const { data } = await axios.get(`/user/wishlist`, {
             headers: {
                 authorization: encodedToken,
             },
@@ -21,7 +21,7 @@ const getWishlist = async (encodedToken, dispatchWishlist) => {
 const addToWishlist = async (encodedToken, product, dispatchWishlist) => {
     try {
         const { data } = await axios.post(
-            `/api/user/wishlist`,
+            `/user/wishlist`,
             { product },
             {
                 headers: {
@@ -42,14 +42,11 @@ const addToWishlist = async (encodedToken, product, dispatchWishlist) => {
 
 const removeFromWishlist = async (encodedToken, product, dispatchWishlist) => {
     try {
-        const { data } = await axios.delete(
-            `/api/user/wishlist/${product._id}`,
-            {
-                headers: {
-                    authorization: encodedToken,
-                },
-            }
-        );
+        const { data } = await axios.delete(`/user/wishlist/${product._id}`, {
+            headers: {
+                authorization: encodedToken,
+            },
+        });
         dispatchWishlist({
             type: "REMOVE_FROM_WISHLIST",
             payload: { product },

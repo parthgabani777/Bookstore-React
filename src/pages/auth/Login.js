@@ -4,6 +4,8 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../../context/auth-context";
 import "./auth.css";
 import { toast } from "react-toastify";
+import { useCart } from "../../context/cart-context";
+import { useWishlist } from "../../context/wishlist-context";
 
 function Login() {
     const navigation = useNavigate();
@@ -19,9 +21,18 @@ function Login() {
 
     const [showPassword, setShowPassword] = useState(false);
 
+    const { dispatchCart } = useCart();
+    const { dispatchWishlist } = useWishlist();
+
     const login = async (loginCredentials) => {
         try {
-            await loginHandler(loginCredentials, setAuthTokens, navigation);
+            await loginHandler(
+                loginCredentials,
+                setAuthTokens,
+                navigation,
+                dispatchCart,
+                dispatchWishlist
+            );
         } catch (error) {
             toast.error(error);
         }
@@ -36,7 +47,7 @@ function Login() {
         e.preventDefault();
         login({
             email: "gabaniparth04@gmail.com",
-            password: "parth123",
+            password: "parth123@",
         });
     };
 

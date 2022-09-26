@@ -10,6 +10,7 @@ import {
     NotFound,
 } from "./pages/Pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Mockman from "mockman-js";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Header />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/mock" element={<Mockman />} />
                     <Route path="homePage" element={<HomePage />} />
                     <Route path="login" element={<Login />} />
                     <Route path="signup" element={<SignUp />} />

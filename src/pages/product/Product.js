@@ -69,7 +69,7 @@ function Product() {
                     <ProductCard product={isProductExist} />
                 ) : (
                     filteredItems.map((product) => (
-                        <ProductCard product={product} key={product.id} />
+                        <ProductCard product={product} key={product._id} />
                     ))
                 )}
             </div>

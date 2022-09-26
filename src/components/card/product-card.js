@@ -59,7 +59,9 @@ function ProductCard({ product }) {
                 <div className="card-actions p-1 text-s">
                     {findItems(cart.itemInCart, product) ? (
                         <button className="btn btn-primary">
-                            <Link to="/cart">Go To Cart</Link>
+                            <Link to="/cart" className="w-100 block">
+                                Go To Cart
+                            </Link>
                         </button>
                     ) : (
                         <button

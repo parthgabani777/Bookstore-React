@@ -1,9 +1,18 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import "./axios-config";
+import { getCart } from "./cart-service";
+import { getWishlist } from "./wishlist-service";
 
-const loginHandler = async (loginCredentials, setAuthTokens, navigation) => {
+const loginHandler = async (
+    loginCredentials,
+    setAuthTokens,
+    navigation,
+    dispatchCart,
+    dispatchWishlist
+) => {
     try {
-        const { data } = await axios.post("/api/auth/login", {
+        const { data } = await axios.post("/auth/login", {
             email: loginCredentials.email,
             password: loginCredentials.password,
         });
@@ -12,8 +21,9 @@ const loginHandler = async (loginCredentials, setAuthTokens, navigation) => {
         setAuthTokens(encodedToken);
         navigation("/");
         toast.success("Successfully logged in.");
+        await getCart(encodedToken, dispatchCart);
+        await getWishlist(encodedToken, dispatchWishlist);
     } catch (error) {
-        console.log(loginCredentials, error);
         switch (error.response.status) {
             case 401:
                 throw "Wrong password.";
@@ -25,9 +35,15 @@ const loginHandler = async (loginCredentials, setAuthTokens, navigation) => {
     }
 };
 
-const signupHandler = async (signupCredentials, setAuthTokens, navigation) => {
+const signupHandler = async (
+    signupCredentials,
+    setAuthTokens,
+    navigation,
+    dispatchCart,
+    dispatchWishlist
+) => {
     try {
-        const { data } = await axios.post("/api/auth/signup", {
+        const { data } = await axios.post("/auth/signup", {
             firstName: signupCredentials.firstName,
             lastName: signupCredentials.lastName,
             email: signupCredentials.email,
@@ -37,10 +53,12 @@ const signupHandler = async (signupCredentials, setAuthTokens, navigation) => {
         localStorage.setItem("token", encodedToken);
         setAuthTokens(encodedToken);
         navigation("/");
+        await getCart(encodedToken, dispatchCart);
+        await getWishlist(encodedToken, dispatchWishlist);
     } catch (error) {
         switch (error.response.status) {
             case 422:
-                throw "Username alrady exists.";
+                throw "Username already exists.";
             default:
                 throw "Signup failed.";
         }

@@ -53,9 +53,7 @@ function CartCard({ product }) {
                             >
                                 <i className="fas fa-minus"></i>
                             </div>
-                            <div className="counter-text">
-                                {product.quantity}
-                            </div>
+                            <div className="counter-text">{product.qty}</div>
                             <div
                                 className="counter-btn"
                                 onClick={() => {

@@ -11,7 +11,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Call make Server
-makeServer();
+// makeServer();
 
 ReactDOM.render(
     <React.StrictMode>
